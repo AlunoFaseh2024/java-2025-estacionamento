@@ -6,6 +6,9 @@ import com.cleberleao.estacionamento.service.VeiculoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import com.cleberleao.estacionamento.dto.RequestVagaDTO;
+import org.springframework.http.HttpStatus;
+
 
 import java.util.List;
 import java.util.Map;
@@ -41,4 +44,15 @@ public class VagaController {
         long total = veiculoService.totalVeiculosEstacionados();
         return ResponseEntity.ok(Map.of("total", total));
     }
+
+    @PostMapping
+    public ResponseEntity<Map<String, Object>> criarVagas(@RequestBody RequestVagaDTO dto) {
+        List<Vaga> criadas = vagaService.criarVagas(dto.getQuantidade());
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(Map.of(
+                        "mensagem", criadas.size() + " vagas criadas com sucesso",
+                        "totalCriadas", criadas.size()
+                ));
+    }
+
 }
