@@ -23,3 +23,23 @@ Endpoint para dar a saída de um veículo, o sistema deve calcular o total que d
 Considerações:
 O código fonte deve ser disponibilizado em repositório público no Github.
 Todos devem entregar o funcionamento do sistema com todos os requisitos.
+
+## Como fazer funcionar
+
+1 - Crie um banco de dados chamado __estacionamento__ no XAMPP.
+
+2 - Crie uma conta de usuário com nome 'rafael' e senha 'SenhaTeste123', ou também crie com outros dados e informe isso no arquivo _application.properties_.
+
+3 - Rode o arquivo __EstacionamentoApplication.java__ em _java-2025-estacionamento\src\main\java\com\cleberleao\estacionamento_ .
+
+4 - Abra o navegador em [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html) .
+
+## Como usar
+
+Esses passos devem ser feito em ordem, pois, o passo 3 só pode ser feito depois que os passos 1 e o 2 forem executados.
+
+1 - Crie um usuário no _POST/usuarios_. Informe o nome e e-mail.
+
+2 - Vá em _POST/vagas_ e defina a quantidade total de vagas no estacionamento.
+
+3 - Vá em _POST/veiculos_ e registre a entrada de um veículo.
